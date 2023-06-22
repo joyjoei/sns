@@ -1,4 +1,4 @@
-package com.example.fastcampusmysql.controller;
+package com.example.fastcampusmysql.application.controller;
 
 import com.example.fastcampusmysql.domain.member.dto.MemberDto;
 import com.example.fastcampusmysql.domain.member.dto.MemberNicknameHistoryDto;
@@ -13,10 +13,12 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/members")
 public class MemberController {
     final private MemberWriteService memberWriteService;
     final private MemberReadService memberReadService;
-    @PostMapping("/members")
+
+    @PostMapping
     public MemberDto register(@RequestBody RegisterMemberCommand command){
         var member = memberWriteService.register(command);
         return memberReadService.toDto(member);
