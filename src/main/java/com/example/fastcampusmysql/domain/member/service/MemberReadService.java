@@ -35,7 +35,7 @@ public class MemberReadService {
                 .toList();
     }
     public MemberDto toDto(Member member){
-        return new MemberDto(member.getId(), member.getEmail(), member.getNickname(), member.getBirthDay());
+        return new MemberDto(member.getId(), member.getEmail(), member.getNickname(), member.getBirthday());
     }
 
     private MemberNicknameHistoryDto toDto(MemberNicknameHistory history){
